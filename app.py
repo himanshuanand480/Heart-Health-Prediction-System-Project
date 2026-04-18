@@ -1,7 +1,3 @@
-# app.py
-# This script launches the Streamlit web app.
-# It loads the pre-trained model and uses it to make predictions based on user input.
-
 import streamlit as st
 import pandas as pd
 import pickle
@@ -42,7 +38,6 @@ def load_model_data(path):
         return None
 
 
-# Load the entire dictionary from the pickle file
 model_data = load_model_data('heart_disease_model.pkl')
 df_original = load_data('heart.csv')
 
@@ -51,7 +46,7 @@ model = None
 model_columns = None
 
 if model_data:
-    # Correctly extract the model and columns from the dictionary
+    
     model = model_data.get('model')
     model_columns = model_data.get('columns')
 
@@ -59,7 +54,7 @@ if model is None or model_columns is None or df_original is None:
     st.error("Could not load the model or its required column data. Please check the 'heart_disease_model.pkl' file.")
     st.stop()
 
-# --- Sidebar for User Input ---
+# --- Sidebar for User Input -
 st.sidebar.markdown(
     """
     <h1 style='text-align: center; font-size: 50px;'>🩺</h1>
@@ -105,7 +100,7 @@ def user_input_features():
 
 input_df = user_input_features()
 
-# --- Main Page Layout ---
+
 st.markdown(
     "<h1 style='text-align: center; font-size: 100px;'>🫀</h1>",
     unsafe_allow_html=True
@@ -114,7 +109,7 @@ st.markdown(
 st.title('❤️ Heart Health Prediction System')
 st.markdown("This app uses a `RandomForestClassifier` to predict the likelihood of heart disease.")
 
-# Create tabs for better organization
+
 tab1, tab2 = st.tabs(["📈 Prediction Analysis", "📊 3D Feature Explorer"])
 
 with tab1:
@@ -122,7 +117,7 @@ with tab1:
     st.write("Click the button below to get a risk assessment based on the input data.")
 
     if st.button('**Click to Predict Risk**', use_container_width=True, type="primary"):
-        # Reindex to ensure column order matches model's expectation
+      
         final_input = input_df.reindex(columns=model_columns, fill_value=0)
 
         prediction = model.predict(final_input)
@@ -178,7 +173,7 @@ with tab2:
         title="Age vs. Cholesterol vs. Max Heart Rate"
     )
 
-    # Add the user's input as a larger, distinct point
+
     fig_3d.add_trace(go.Scatter3d(
         x=input_df['Age'], y=input_df['Cholesterol'], z=input_df['MaxHR'],
         mode='markers',
@@ -194,7 +189,7 @@ with tab2:
     )
     st.plotly_chart(fig_3d, use_container_width=True)
 
-# Show input data in an expander at the bottom
+
 with st.expander("Show Current Input Parameters"):
     st.dataframe(input_df.T.rename(columns={0: 'Values'}))
 
