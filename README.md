@@ -48,7 +48,7 @@ This system helps in **early prediction of risk** using Machine Learning.
 ---
 ## Output
 
-![Output](images/output.png)
+![Output](Output.png)
 
 ## 📈 3D Visualization
 
