@@ -8,8 +8,7 @@
 ---
 
 ## 🎥 Demo Video
-👉 [Watch Demo] 
-
+👉[![Watch Demo] https://drive.google.com/file/d/1PU4dIYGPBBI9Jzfq332o644D8WJoKeqC/view?usp=sharing
 ---
 
 ## 🧠 Problem Statement
@@ -37,7 +36,8 @@ This system helps in **early prediction of risk** using Machine Learning.
 
 ## 🧪 Sample Input
 
-![[Input].(Input.png)
+![Input](Input.png)
+
 ---
 
 ## 📊 Model Details
@@ -48,7 +48,8 @@ This system helps in **early prediction of risk** using Machine Learning.
 ---
 ## Output
 
-![Output].(Output.png)
+![Output](images/output.png)
+
 ## 📈 3D Visualization
 
 ![3D Plot](3D_Plot.png)
@@ -61,7 +62,7 @@ This system helps in **early prediction of risk** using Machine Learning.
 
 ## 📸 Application Screenshot
 
-![App Screenshot](PASTE_YOUR_IMAGE_LINK_HERE)
+![App Screenshot](App_ss.png)
 
 ---
 
